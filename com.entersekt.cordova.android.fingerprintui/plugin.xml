@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="com.entersekt.cordova.android.fingerprintui"
+    version="1.0.0">
+
+    <name>FingerprintUi</name>
+    <description>Add Fingerprint UI to be used with Android TransaktSDK</description>
+    <license>Copyright Entersekt</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+        <source-file src="src/android/com/entersekt/cordova/fingerprintui/FingerprintUi.java" target-dir="src/com/entersekt/cordova/fingerprintui" />
+        <resource-file src="src/android/libs/FingerprintUi.aar" target="libs/FingerprintUi.aar" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FingerprintUi">
+                <param name="android-package" value="com.entersekt.cordova.fingerprintui.FingerprintUi" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+    </platform>
+</plugin>
