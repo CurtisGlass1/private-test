@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="com.entersekt.cordova.transaktsdk"
+    version="2.8.1">
+
+    <name>TransaktSDK</name>
+    <description>Enables secure comms between your app and Transakt Secure Gateway</description>
+    <license>Copyright Entersekt</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/TransaktSDKPlugin.js" name="TransaktSDKPlugin">
+        <clobbers target="cordova.plugins.transaktSDK" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <!-- Cordova >= 2.8 -->
+        <config-file target="config.xml" parent="/*">
+            <feature name="TransaktSDKPlugin">
+                <param name="ios-package" value="CDVTransaktSDKPlugin" />
+            </feature>
+        </config-file>
+
+        <framework src="src/ios/TransaktSDK.framework" custom="true" />
+
+        <resource-file src="src/ios/libCert0.crt" />
+
+        <source-file src="src/ios/CDVTransaktSDKPlugin.h" />
+        <source-file src="src/ios/CDVTransaktSDKPlugin.m" />
+
+        <source-file src="src/ios/DefaultLogger.h" />
+        <source-file src="src/ios/DefaultLogger.m" />
+
+        <source-file src="src/ios/SignupObject.h" />
+        <source-file src="src/ios/SignupObject.m" />
+
+        <source-file src="src/ios/TDataObject.h" />
+        <source-file src="src/ios/TDataObject.m" />
+
+        <framework src="UIKit.framework" />
+        <framework src="CFNetwork.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="Security.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="LocalAuthentication.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="CoreLocation.framework" />
+        <framework src="libz.tbd" />
+        <framework src="libc.tbd" />
+        <framework src="libsqlite3.tbd" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+        <source-file src="src/android/com/entersekt/cordova/transaktsdk/TransaktSDKPlugin.java" target-dir="src/com/entersekt/cordova/transaktsdk" />
+        <resource-file src="src/android/libs/TransaktSDK.aar" target="libs/TransaktSDK.aar" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="TransaktSDKPlugin">
+                <param name="android-package" value="com.entersekt.cordova.transaktsdk.TransaktSDKPlugin" />
+            </feature>
+        </config-file>
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/TransaktSdkPluginProxy.js" name="TransaktSdkPluginProxy">
+            <merges target="" />
+        </js-module>
+        <framework src="src/windows/TransaktSdkRuntimeComponent.winmd" custom="true" />
+        <framework src="src/windows/Transakt.WinRT.dll" custom="true" />
+    </platform>
+</plugin>

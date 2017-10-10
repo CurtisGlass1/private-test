@@ -1,0 +1,27 @@
+{
+  "name": "com.entersekt.cordova.transaktsdk",
+  "version": "2.8.1",
+  "description": "Enables secure comms between your app and Transakt Secure Gateway",
+  "cordova": {
+    "id": "com.entersekt.cordova.transaktsdk",
+    "platforms": [
+      "ios",
+      "android",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "cordova-windows"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Entersekt",
+  "license": "Copyright Entersekt"
+}
